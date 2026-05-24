@@ -1,29 +1,23 @@
+import random
+import time
+
 class Practice:
-    def list_numbers(self):
-        start = 1
-        end = 8
-        limit = 5
-
-        numbers = list(range(start, end))
-        for n in numbers:
-            if n == limit:
-                break
-            print(n)
-
-
-    def list_words(self):
+    def rostics_monitoring(self):
         limit = 10
-        words = [f"str{i}" for i in range(limit)]
-        for word in words:
-            print(word)
+        alert = 85
+        pause = 0.2
 
+        i = 0
+        while i < limit:
+            current_load = random.randint(0, 100)
 
-object_for_numbers = Practice()
-print("lesson1")
-object_for_numbers.list_numbers()
+            print(f"Текущая нагрузка: {current_load}%")
 
-print("-"*200)
+            if current_load > alert:
+                print(f"🚨 WARNING! Превышен порог нагрузки в {alert}%!")
 
-object_for_words = Practice()
-print("lesson2")
-object_for_words.list_words()
+            time.sleep(pause)
+            i += 1
+
+object_for_rostics = Practice()
+object_for_rostics.rostics_monitoring()
